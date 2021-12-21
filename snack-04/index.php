@@ -3,6 +3,13 @@
 function getRandom($min, $max, $nItems){
    $myArr = [];
 
+   //check se min>max
+   if($min > $max){
+      $temporayMin = $min;
+      $min = $max;
+      $max = $temporayMin;
+   };
+
    //verifico di poter avere tanti nItems quanti ne voglio
    if(($max - $min) < $nItems){
       $nItems = $max - $min;

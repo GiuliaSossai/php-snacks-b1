@@ -37,22 +37,46 @@ $db = [
 <body>
    <div style="background-color: grey;">
       <?php
-         for($i = 0; $i < count($db["teachers"]); $i++){
-            echo $db["teachers"][$i]["name"];
-            echo $db["teachers"][$i]["lastname"]. "<br>";
-         };
+         // for($i = 0; $i < count($db["teachers"]); $i++){
+         //    echo $db["teachers"][$i]["name"];
+         //    echo $db["teachers"][$i]["lastname"]. "<br>";
+         // };
+
       ?>
+
+      <h2>teachers</h2>
+      <ul>
+         <?php foreach ($db['teachers'] as $teacher){ ?>
+         <li>
+         <?php echo $teacher['name'] ?>
+         <?php echo $teacher['lastname'] ?>
+         </li>
+         <?php } ?>
+      </ul>
    </div>
    
    <br>
 
    <div style="background-color: green;">
       <?php
-         for($i = 0; $i < count($db["pm"]); $i++){
-            echo $db["pm"][$i]["name"];
-            echo $db["pm"][$i]["lastname"]. "<br>";
-         };
+         // for($i = 0; $i < count($db["pm"]); $i++){
+         //    echo $db["pm"][$i]["name"];
+         //    echo $db["pm"][$i]["lastname"]. "<br>";
+         // };
       ?>
+
+      <h2>pm</h2>
+      <ul>
+         <?php foreach ($db['pm'] as $single){ ?>
+         <li>
+         <?php echo $single['name'] ?>
+         <?php echo $single['lastname'] ?>
+         </li>
+         <?php } ?>
+      </ul>
    </div>
+
+
+
 </body>
 </html>

@@ -43,22 +43,22 @@ $posts = [
 ];
 //var_dump($posts);
 
-print_r(array_keys($posts));
-echo "<br>";
-echo "<br>";
+// print_r(array_keys($posts));
+// echo "<br>";
+// echo "<br>";
 
-for($i = 0; $i < count(array_keys($posts)); $i++){
-   //stampo le date
-   echo array_keys($posts)[$i];
+// for($i = 0; $i < count(array_keys($posts)); $i++){
+//    //stampo le date
+//    echo array_keys($posts)[$i];
    
-   //stampo i post di ogni data
-   foreach ($posts[array_keys($posts)[$i]] as $post){
-      echo "<br>";
-      echo $post["title"] . ":" . $post["author"] . " - " . $post["text"];   
-   }
-   echo "<br>";
-   echo "<br>";
-};
+//    //stampo i post di ogni data
+//    foreach ($posts[array_keys($posts)[$i]] as $post){
+//       echo "<br>";
+//       echo $post["title"] . ":" . $post["author"] . " - " . $post["text"];   
+//    }
+//    echo "<br>";
+//    echo "<br>";
+// };
 
 ?>
 
@@ -72,6 +72,18 @@ for($i = 0; $i < count(array_keys($posts)); $i++){
    <title>Snack 03</title>
 </head>
 <body>
-   
+   <div>
+       <?php foreach($posts as $chiave => $post){ ?>
+       <h2><?php echo $chiave ?></h2>
+       <ul>
+            <?php foreach($post as $valore){ ?>
+            <li>
+                <div><?php echo $valore['title'] ?> - <?php echo $valore['author'] ?></div>
+                <p><?php echo $valore['text'] ?></p>
+            </li>
+            <?php } ?>
+       </ul>
+       <?php } ?>
+   </div>
 </body>
 </html>

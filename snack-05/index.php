@@ -1,7 +1,7 @@
 <!-- Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo -->
 
 <?php
-$myPar = "A Stop on the Salt Route
+$text = "A Stop on the Salt Route
 1000 B.C.
 As they rounded a bend in the path that ran beside the river, Lara recognized the silhouette of a fig tree atop a nearby hill. The weather was hot and the days were long. The fig tree was in full leaf, but not yet bearing fruit.
 Soon Lara spotted other landmarks—an outcropping of limestone beside the path that had a silhouette like a man’s face, a marshy spot beside the river where the waterfowl were easily startled, a tall tree that looked like a man with his arms upraised. They were drawing near to the place where there was an island in the river. The island was a good spot to make camp. They would sleep on the island tonight.
@@ -19,13 +19,19 @@ Larth spoke like that all the time, conjuring images of giants and monsters in t
 “Good girl!” said Larth, proud of his daughter’s memory and powers of observation. He was a strong, handsome man with flecks of gray in his black beard. His wife had borne several children, but all had died very young except Lara, the last, whom his wife had died bearing. Lara was very precious to him. Like her mother, she had golden hair. Now that she had reached the age of childbearing, Lara was beginning to display the fullness of a woman’s hips and breasts. It was Larth’s greatest wish that he might live to see his own grandchildren. Not every man lived that long, but Larth was hopeful. He had been healthy all his life, partly, he believed, because he had always been careful to show respect to the numina he encountered on his journeys.";
 
 //divido in un array il paragrafo
-$myArr = explode(".", $myPar);
+$myArr = explode(".", $text);
 
-//var_dump($myArr);
+//se mettessi:
+//$myArr = explode(".", $text, -1);
+//il -1 andrebbe a eliminare l'ultimo elemento dell'array: va bene se siamo sicuri che è un . ma come regola generale no, perché potrebbe essere del testo!!
 
-for ($i = 0; $i < count($myArr); $i++){
-   echo $myArr[$i]. ".<br>";
-}
+var_dump($myArr);
+//problema che c'è un punto da solo come ultimo elemento dell'array, perché con explode di fatto usando come separatore il . io lo tolgo; lo aggiungo in html alla fine di ogni li quindi essendo statico nell'ultimo elemento dell'arrau è da solo.
+
+//versione 1:
+// for ($i = 0; $i < count($myArr); $i++){
+//    echo $myArr[$i]. ".<br>";
+// }
 ?>
 
 
@@ -38,6 +44,13 @@ for ($i = 0; $i < count($myArr); $i++){
    <title>Snack 05</title>
 </head>
 <body>
+   <ul>
+      <?php foreach($myArr as $single){
+         if(!empty($single)){
+            echo "<li> $single.</li>";
+         }
+      } ?>
+   </ul>
    
 </body>
 </html>
